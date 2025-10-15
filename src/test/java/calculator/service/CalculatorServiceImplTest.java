@@ -61,4 +61,24 @@ public class CalculatorServiceImplTest {
             assertThat(result).containsAll(expected);
         }
     }
+
+    @Nested
+    @DisplayName("커스텀 구분자 분리 테스트")
+    class CustomDelimetersTest {
+
+        @Test
+        @DisplayName("커스텀 구분자로 구분된 문자열을 입력시 분리된 문자열 리스트가 반환된다")
+        void success_custom_delimeters() {
+
+            // given
+            String testInput = "//;\n1;2;3";
+            List<String> expected = List.of("1", "2", "3");
+
+            // when
+            List<String> result = calculatorService.splitByDelimeters(testInput);
+
+            // then
+            assertThat(result).containsAll(expected);
+        }
+    }
 }
