@@ -62,7 +62,7 @@ public class CalculatorServiceImplTest {
         }
 
         @Test
-        @DisplayName("마침표(.)이 포함된 문자열을 입력시 올바르게 문자열을 분리한다.")
+        @DisplayName("마침표/소수점(.)이 포함된 문자열을 입력시 올바르게 문자열을 분리한다.")
         void success_string_contains_quote() {
 
             // given
