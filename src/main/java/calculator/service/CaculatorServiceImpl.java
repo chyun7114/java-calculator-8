@@ -1,6 +1,7 @@
 package calculator.service;
 
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class CaculatorServiceImpl implements CalculatorService {
 
@@ -9,13 +10,20 @@ public class CaculatorServiceImpl implements CalculatorService {
 
         String customDelimeter = findCustomDelimeters(input);
 
-        if(customDelimeter == null || customDelimeter.isEmpty()) {
+        if(customDelimeter == null) {
             return List.of(input.split(",|:"));
         }
 
         String changedInput = input.substring(input.indexOf("\n") + 1);
 
-        return List.of(changedInput.split(customDelimeter + "|" + ",|:"));
+        if(customDelimeter.isEmpty()) {
+            return List.of(changedInput.split(",|:"));
+        }
+
+
+        String regex = Pattern.quote(customDelimeter) + "|" + ",|:";
+
+        return List.of(changedInput.split(regex));
     }
 
     private String findCustomDelimeters(String input) {
