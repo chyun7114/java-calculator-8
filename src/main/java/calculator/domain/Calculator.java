@@ -22,7 +22,7 @@ public class Calculator {
 
         for(String number : numbers) {
             try {
-                this.result = Double.parseDouble(number);
+                this.result += Double.parseDouble(number);
             } catch(NumberFormatException e) {
                 throw new IllegalArgumentException("잘못된 값 입력");
             }
