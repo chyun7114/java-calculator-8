@@ -22,9 +22,12 @@ public class Calculator {
 
         for(String number : numbers) {
             try {
+                if(Double.parseDouble(number) < 0)
+                    throw new IllegalArgumentException();
+
                 this.result += Double.parseDouble(number);
             } catch(NumberFormatException e) {
-                throw new IllegalArgumentException("잘못된 값 입력");
+                throw new IllegalArgumentException();
             }
         }
     }
