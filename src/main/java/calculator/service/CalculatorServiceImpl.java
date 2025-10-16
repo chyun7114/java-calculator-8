@@ -12,6 +12,7 @@ public class CalculatorServiceImpl implements CalculatorService {
     @Override
     public List<String> splitByDelimeters(String input) {
 
+        input = input.replace("\\n", END_CUSTOM_DELIMETERS);
         String customDelimeter = findCustomDelimeters(input);
 
         if(customDelimeter == null) {

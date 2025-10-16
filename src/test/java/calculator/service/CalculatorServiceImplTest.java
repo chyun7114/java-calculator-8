@@ -86,7 +86,7 @@ public class CalculatorServiceImplTest {
         void success_custom_delimeters() {
 
             // given
-            String testInput = "//;\n1;2;3";
+            String testInput = "//;\\n1;2;3";
             List<String> expected = List.of("1", "2", "3");
 
             // when
@@ -101,7 +101,7 @@ public class CalculatorServiceImplTest {
         void success_custom_and_default_delimeters() {
 
             // given
-            String testInput = "//:\n1:2:3";
+            String testInput = "//:\\n1:2:3";
             List<String> expected = List.of("1", "2", "3");
 
             // when
@@ -116,7 +116,7 @@ public class CalculatorServiceImplTest {
         void success_mixed_custom_and_default_delimeters() {
 
             // given
-            String testInput = "//;\n1,2;3";
+            String testInput = "//;\\n1,2;3";
             List<String> expected = List.of("1", "2", "3");
 
             // when
@@ -131,7 +131,7 @@ public class CalculatorServiceImplTest {
         void success_custom_delimeters_contains_quote() {
 
             // given
-            String testInput = "//.\n1.2,3";
+            String testInput = "//.\\n1.2,3";
             List<String> expected = List.of("1", "2", "3");
 
             // when
@@ -146,7 +146,7 @@ public class CalculatorServiceImplTest {
         void success_custom_delimeters_is_empty() {
 
             // given
-            String testInput = "//\n1,2,3";
+            String testInput = "//\\n1,2,3";
             List<String> expected = List.of("1", "2", "3");
 
             // when
@@ -161,7 +161,22 @@ public class CalculatorServiceImplTest {
         void success_custom_delimeters_is_blank() {
 
             // given
-            String testInput = "// \n1 2 3";
+            String testInput = "// \\n1 2 3";
+            List<String> expected = List.of("1", "2", "3");
+
+            // when
+            List<String> result = calculatorService.splitByDelimeters(testInput);
+
+            // then
+            assertThat(result).containsAll(expected);
+        }
+
+        @Test
+        @DisplayName("커스텀 구분자가 여러 글자여도 올바르게 문자를 분리한다.")
+        void success_custom_delimeters_is_multiple() {
+
+            // given
+            String testInput = "//;;,,\\n1;;,,2;;,,3";
             List<String> expected = List.of("1", "2", "3");
 
             // when
