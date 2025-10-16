@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class CalculatorServiceImplTest {
 
-    private CalculatorService calculatorService = new CaculatorServiceImpl();
+    private CalculatorService calculatorService = new CalculatorServiceImpl();
 
     @Nested
     @DisplayName("구분자 분리 테스트")

@@ -3,7 +3,7 @@ package calculator.service;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class CaculatorServiceImpl implements CalculatorService {
+public class CalculatorServiceImpl implements CalculatorService {
 
     private static final String START_CUSTOM_DELIMETERS = "//";
     private static final String END_CUSTOM_DELIMETERS = "\n";
