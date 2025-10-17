@@ -1,4 +1,4 @@
-package calculator.service;
+package calculator.model.service;
 
 import java.util.List;
 

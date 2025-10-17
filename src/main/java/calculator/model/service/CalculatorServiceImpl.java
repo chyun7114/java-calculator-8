@@ -1,6 +1,6 @@
-package calculator.service;
+package calculator.model.service;
 
-import calculator.domain.Calculator;
+import calculator.model.domain.Calculator;
 
 import java.util.List;
 import java.util.regex.Pattern;

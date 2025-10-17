@@ -1,12 +1,9 @@
 package calculator.controller;
 
-import calculator.domain.Calculator;
-import calculator.service.CalculatorService;
-import calculator.service.CalculatorServiceImpl;
+import calculator.model.service.CalculatorService;
+import calculator.model.service.CalculatorServiceImpl;
 import calculator.view.InputView;
 import calculator.view.OutputView;
-
-import java.util.List;
 
 public class CalculatorController {
 
