@@ -11,13 +11,13 @@ public class CustomDelimiterParser implements InputParser {
 
     @Override
     public List<String> parse(String input) {
+        input = input.replace("\\n", END_CUSTOM_DELIMITER);
 
         String[] parts = input.split(END_CUSTOM_DELIMITER, 2);
         String customDelimiter = parts[0].substring(START_CUSTOM_DELIMITER.length());
-        String body = parts[1];
 
         String regex = Pattern.quote(customDelimiter) + "|" + DEFAULT_DELIMITERS;
 
-        return List.of(body.split(regex));
+        return List.of(parts[1].split(regex));
     }
 }
