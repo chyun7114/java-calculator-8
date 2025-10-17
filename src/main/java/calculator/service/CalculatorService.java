@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface CalculatorService {
 
-    List<String> splitByDelimeters(String input);
+    double calculate(String userInput);
 }

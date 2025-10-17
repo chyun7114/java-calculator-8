@@ -4,31 +4,23 @@ import java.util.List;
 
 public class Calculator {
 
-    private double result;
+    public double calculate(List<String> numbers) {
 
-    public Calculator() {
+        double sum = 0;
 
-        this.result = 0;
-    }
-
-    public double getResult() {
-
-        return this.result;
-    }
-
-    public void calculate(List<String> numbers) {
-
-        if(numbers.isEmpty()) return;
+        if(numbers.isEmpty()) return sum;
 
         for(String number : numbers) {
             try {
                 if(Double.parseDouble(number) < 0)
                     throw new IllegalArgumentException();
 
-                this.result += Double.parseDouble(number);
+                sum += Double.parseDouble(number);
             } catch(NumberFormatException e) {
                 throw new IllegalArgumentException();
             }
         }
+
+        return sum;
     }
 }

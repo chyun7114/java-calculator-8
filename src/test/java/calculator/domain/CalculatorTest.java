@@ -26,10 +26,10 @@ class CalculatorTest {
             double expected = 6;
 
             // when
-            calculator.calculate(testInput);
+            double result = calculator.calculate(testInput);
 
             // then
-            assertThat(calculator.getResult()).isEqualTo(expected);
+            assertThat(result).isEqualTo(expected);
         }
 
         @Test
@@ -41,10 +41,10 @@ class CalculatorTest {
             double expected = 4.2;
 
             // when
-            calculator.calculate(testInput);
+            double result = calculator.calculate(testInput);
 
             // then
-            assertThat(calculator.getResult()).isEqualTo(expected);
+            assertThat(result).isEqualTo(expected);
         }
         
         @Test
@@ -56,10 +56,10 @@ class CalculatorTest {
             double expected = 0;
 
             // when
-            calculator.calculate(testInput);
+            double result = calculator.calculate(testInput);
 
             // then
-            assertThat(calculator.getResult()).isEqualTo(expected);
+            assertThat(result).isEqualTo(expected);
         }
 
         @Test

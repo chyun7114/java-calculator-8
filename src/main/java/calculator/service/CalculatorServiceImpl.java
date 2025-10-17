@@ -1,16 +1,27 @@
 package calculator.service;
 
+import calculator.domain.Calculator;
+
 import java.util.List;
 import java.util.regex.Pattern;
 
 public class CalculatorServiceImpl implements CalculatorService {
 
+    private Calculator calculator = new Calculator();
+
     private static final String START_CUSTOM_DELIMETERS = "//";
     private static final String END_CUSTOM_DELIMETERS = "\n";
     private static final String DEFAULT_DELIMETERS = ",|:";
 
+
     @Override
-    public List<String> splitByDelimeters(String input) {
+    public double calculate(String userInput) {
+        List<String> numbers = splitByDelimeters(userInput);
+
+        return calculator.calculate(numbers);
+    }
+
+    private List<String> splitByDelimeters(String input) {
 
         input = input.replace("\\n", END_CUSTOM_DELIMETERS);
         String customDelimeter = findCustomDelimeters(input);
