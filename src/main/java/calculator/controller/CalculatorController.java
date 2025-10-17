@@ -2,18 +2,16 @@ package calculator.controller;
 
 import calculator.model.service.CalculatorService;
 import calculator.model.service.CalculatorServiceImpl;
-import calculator.view.InputView;
-import calculator.view.OutputView;
+import calculator.view.ConsoleView;
 
 public class CalculatorController {
 
-    private CalculatorService calculatorService = new CalculatorServiceImpl();
-    private InputView inputView = new InputView();
-    private OutputView outputView = new OutputView();
+    private final CalculatorService calculatorService = new CalculatorServiceImpl();
+    private final ConsoleView consoleView = new ConsoleView();
 
     public void start() {
-        String userInput = inputView.getUserInput();
+        String userInput = consoleView.getUserInput();
         double result = calculatorService.calculate(userInput);
-        outputView.getUserOutput(result);
+        consoleView.printOutput(result);
     }
 }
