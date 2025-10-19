@@ -46,7 +46,7 @@ class CalculatorTest {
             // then
             assertThat(result).isEqualTo(expected);
         }
-        
+
         @Test
         @DisplayName("빈 리스트가 들어온 경우 0을 반환한다.")
         void success_is_empty_list() {
@@ -63,11 +63,23 @@ class CalculatorTest {
         }
 
         @Test
-        @DisplayName("잘못된 값이 입력 된 경우 IllegalArgumentException을 발생시킨다")
+        @DisplayName("숫자가 아닌 문자가 입력 된 경우 IllegalArgumentException을 발생시킨다.")
         void fail_calculate() {
 
             // given
             List<String> testInput = List.of("h", "2", "3");
+
+            // when & then
+            assertThatThrownBy(() -> calculator.calculate(testInput))
+                    .isInstanceOf(IllegalArgumentException.class);
+        }
+
+        @Test
+        @DisplayName("음수가 입력된 경우 IllegalArgumentException을 발생시킨다.")
+        void fail_negative_number() {
+
+            // given
+            List<String> testInput = List.of("-1", "2", "3");
 
             // when & then
             assertThatThrownBy(() -> calculator.calculate(testInput))
