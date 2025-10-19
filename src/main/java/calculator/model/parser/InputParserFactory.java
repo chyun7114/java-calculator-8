@@ -4,7 +4,7 @@ public class InputParserFactory {
 
     private static final String START_CUSTOM_DELIMITER = "//";
 
-    private InputParserFactory() {
+    public InputParserFactory() {
         throw new UnsupportedOperationException("this is factory class");
     }
 

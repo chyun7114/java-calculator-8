@@ -8,6 +8,14 @@ import static org.assertj.core.api.Assertions.*;
 class InputParserFactoryTest {
 
     @Test
+    @DisplayName("InputParserFactory는 인스턴스화 할 수 없다.")
+    void inputParserFactory_CannotBeInstantiated() {
+        // when & then
+        assertThatThrownBy(InputParserFactory::new)
+                .isInstanceOf(UnsupportedOperationException.class);
+    }
+
+    @Test
     @DisplayName("입력 문자열이 '//'으로 시작하면 CustomDelimeterParser를 반환한다.")
     void getParser_ForCustomDelimeterParser() {
 
