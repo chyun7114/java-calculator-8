@@ -15,6 +15,53 @@
     - [x] 잘못된 구분자를 입력된 경우 (문자열 분리가 제대로 이뤄지지 않은 경우)
     - [x] 양수가 아닌 문자를 입력하는 경우
 
+---
+
+### 프로젝트 폴더 구조
+```plaintext
++---main
+|   \---java
+|       \---calculator
+|           |   Application.java
+|           |
+|           +---controller
+|           |       CalculatorController.java
+|           |
+|           +---model
+|           |   +---domain
+|           |   |       Calculator.java
+|           |   |
+|           |   +---parser
+|           |   |       CustomDelimiterParser.java
+|           |   |       DefaultDelimiterParser.java
+|           |   |       InputParser.java
+|           |   |       InputParserFactory.java
+|           |   |
+|           |   \---service
+|           |           CalculatorService.java
+|           |           CalculatorServiceImpl.java
+|           |
+|           \---view
+|                   ConsoleView.java
+|
+\---test
+    \---java
+        \---calculator
+            |   ApplicationTest.java
+            |
+            \---model
+                +---domain
+                |       CalculatorTest.java
+                |
+                +---parser
+                |       CustomDelimiterParserTest.java
+                |       DefaultDelimiterParserTest.java
+                |       InputParserFactoryTest.java
+                |
+                \---service
+                        CalculatorServiceImplTest.java
+```
+---
 
 ### 커밋 컨벤션
 ```plaintext
